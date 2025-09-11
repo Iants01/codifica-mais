@@ -1,0 +1,150 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    color: rgb(218, 218, 218);
+}
+
+.body {
+    background: url(imagem_fundo.jpg);
+}
+.cabecalho {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(20, 20, 20);
+    padding-right: 100px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    border-style:outset;
+    border-radius: 20px;
+    border-color: rgb(61, 61, 61);
+}
+
+.botoes {
+    display: flex;
+    gap: 100px;
+    list-style: none;
+}
+.botoes_navegacao {
+    display: flex;
+    font-size: 20px;
+    gap: 200px;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(44, 44, 44);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 50px;
+    border-style:outset;
+    border-radius: 20px;
+    border-color: rgb(61, 61, 61);
+    gap: 80px;
+}
+
+.main_bloco_um {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.main_bloco_dois {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    border-style: outset;
+    border-radius: 20px;
+    border-color: rgb(61, 61, 61);
+    background-color: rgb(58, 58, 58);
+    padding: 20px;
+    font-size: 25px;
+    text-align: justify;
+}
+
+.main_bloco_tres {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.texto_principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.titulos {
+    display: flex;
+    font-size:40px;
+    justify-content: center;
+}
+
+.titulos_planos {
+    font-size: 30px;
+    margin-bottom: 80px;
+}
+
+.paragrafos_planos {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    margin-top: 80px;
+}
+
+.planos_titulos_blocos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(108, 131, 131);
+    border-radius: 15px;
+    border-color: rgb(61, 61, 61);
+    border-style: outset;
+    width: 500px;
+}
+
+.bloco_topicos_planos {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 20px;
+    margin-bottom: 250px;
+}
+
+.topicos_planos {
+    margin-bottom: 30px;
+}
+
+.rodape {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 100px;
+    background-color: rgb(105, 105, 105);
+    border-color: rgb(61, 61, 61);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    border-style:outset;
+    border-radius: 20px;
+}
+
+.botao_rodape {
+    list-style: none;
+    font-size: 20px;
+}
