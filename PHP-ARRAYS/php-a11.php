@@ -2,18 +2,19 @@
 
 function menu() 
 {
-    echo "Sistema de Gerenciamento de Estoque" . PHP_EOL .
+    echo "\nSistema de Gerenciamento de Estoque" . PHP_EOL .
     "a. (1) Adicionar um produto". PHP_EOL .
     "b. (2) Vender um produto". PHP_EOL .
     "c. (3) Verificar o estoque". PHP_EOL .
     "d. (4) Listar o estoque". PHP_EOL .
     "e. (5) Sair" . PHP_EOL;
     $opcaoInformada = readline("Escolha uma opção: ");
+    echo PHP_EOL;
     return $opcaoInformada;
 }
 
 
-function adicionarProduto()
+function adicionarProduto($estoque)
 {
     $produtos = [
         'codigo' => 0,
@@ -23,7 +24,7 @@ function adicionarProduto()
         'quantidade' => 0
     ];
 
-    echo "ADICIONAR PRODUTO AO ESTOQUE" . PHP_EOL;
+    echo "ADICIONAR PRODUTO AO ESTOQUE" . PHP_EOL . PHP_EOL;
 
     $produtos['codigo'] = readline("Digite o codigo do produto: ");
     $produtos['nome'] = readline("Digite o nome do produto: ");
@@ -32,20 +33,31 @@ function adicionarProduto()
 
     $produtos['quantidade'] = readline("Digite a quantidade: "); //verfificar se é maior=0
 
-    echo "Novo produto adicionado: " . PHP_EOL;
+    echo PHP_EOL;
 
-    foreach($produtos as $key => $produto) {
-        echo "$key : $produto" . PHP_EOL;
-    };
+    $estoque[] = $produtos;
+
+    echo "Novo produto adicionado: " . PHP_EOL;
     
-   return $produtos;
+    $produtoAdicionado = count($estoque) - 1;
+
+        echo "Código do Sistema: $produtoAdicionado " . PHP_EOL;
+        
+        foreach($produtos as $key => $produto) {
+            echo "$key : $produto" . PHP_EOL;
+        };
+
+        echo PHP_EOL;
+    
+    
+    return $estoque;
 
 }
 
 function venderProduto($estoque) 
 {
     $codigoProdutoASerVendido = readline("Digite o código do sistema do pruduto que será vendido: ");
-        $produtoASerVendido = $estoque[$codigoProdutoASerVendido]['codigo'];
+        $produtoASerVendido = $estoque[$codigoProdutoASerVendido]['nome'];
 
     $quantidadeASerVendida = readline("Digite a quantidade que será vendida do produto, $produtoASerVendido: ");
 
@@ -70,15 +82,19 @@ function venderProduto($estoque)
 
 function listarEstoque($estoque)
 {
-    foreach($estoque as $produtos) {
+
+    foreach($estoque as $codigoSistema => $produtos) {
+
+        echo "Código Sistema: $codigoSistema" . PHP_EOL;
 
         foreach($produtos as $chave => $produto) {
-        echo "$chave: $produto" . PHP_EOL;
+            echo "$chave: $produto" . PHP_EOL;
         }
-    echo PHP_EOL;
- }
- 
+            echo PHP_EOL;
+    };
+
 }
+
 
 $estoque = [];
 
@@ -91,21 +107,21 @@ while($opcaoInformada != 5) {
 
         while($opcaoInformada == 1) {
 
-            $estoque[] = adicionarProduto();
+            $estoque = adicionarProduto($estoque);
 
-            $opcaoInformada =  readline("Para adicioanr outro produto digite '1', para retornar ao menu digite qualquer tecla: ");
+            $opcaoInformada =  readline("Para adicioanr outro produto digite '1', para retornar ao menu digite qualquer tecla: " . PHP_EOL);
 
         }  
 
     } elseif($opcaoInformada == 2) {
 
         if($estoque == []) {
-        echo "Não existe produtos cadastrados";
+        echo "Não existem produtos cadastrados para vender" . PHP_EOL;
         } else {
         $estoque = venderProduto($estoque);
         }
      
-}
+    }
 
 /*
 elseif (menu() == 3) {
@@ -114,15 +130,24 @@ elseif (menu() == 3) {
 */
 
 elseif ($opcaoInformada == 4) {
-listarEstoque($estoque);
+
+    if($estoque == []) {
+
+        echo "Não existem produtos cadastrados" . PHP_EOL;
+
+    } else {
+
+        listarEstoque($estoque);
+
+    };
+    
 
 } elseif ($opcaoInformada == 5) {
     continue;
 
 } else {
     echo "Opção inválida, escolha outra opção:" . PHP_EOL;
-    $opcaoInformada = menu();
-}
+};
 
 $opcaoInformada = menu();
 
