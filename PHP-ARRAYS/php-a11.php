@@ -8,16 +8,18 @@ function menu()
     "c. (3) Verificar o estoque". PHP_EOL .
     "d. (4) Listar o estoque". PHP_EOL .
     "e. (5) Sair" . PHP_EOL;
+    
     $opcaoInformada = readline("Escolha uma opção: ");
+    
     echo PHP_EOL;
+
     return $opcaoInformada;
 }
-
 
 function adicionarProduto($estoque)
 {
     $produtos = [
-        'codigo' => 0,
+        'codigo' => 2,
         'nome' => 0,
         'tamanho' => 0,
         'cor' => 0,
@@ -27,18 +29,30 @@ function adicionarProduto($estoque)
     echo "ADICIONAR PRODUTO AO ESTOQUE" . PHP_EOL . PHP_EOL;
 
     $produtos['codigo'] = readline("Digite o codigo do produto: ");
+    
     $produtos['nome'] = readline("Digite o nome do produto: ");
+
+    if($produtos['nome'] == '') {
+
+        while($produtos['nome'] == '') {
+
+            $produtos['nome'] = readline("Digite um nome válido: " . PHP_EOL);
+        
+        }
+
+    }
+    
     $produtos['tamanho'] = readline("Digite o tamanho do produto: ");
     $produtos['cor'] = readline("Digite a cor do produto: ");
 
-    $produtos['quantidade'] = (int) readline("Digite a quantidade(apenas numeros inteiros): ");
+    $produtos['quantidade'] = readline("Digite a quantidade(apenas numeros inteiros): ");
 
-    while ($produtos['quantidade'] <= 0) {
-
-        $produtos['quantidade'] = readline("Valor inválido, digite a quantidade novamente: " . PHP_EOL);
-
+    if(!is_numeric($produtos['quantidade']) || (int) $produtos['quantidade'] <= 0 ) {
+        while ((int) $produtos['quantidade'] <= 0) {
+            $produtos['quantidade'] = readline("Valor inválido, digite a quantidade novamente: " . PHP_EOL);
+        }
     }
-
+    
     echo PHP_EOL;
 
     $estoque[] = $produtos;
@@ -51,13 +65,11 @@ function adicionarProduto($estoque)
         
         foreach($produtos as $key => $produto) {
             echo "$key : $produto" . PHP_EOL;
-        };
+        }
 
         echo PHP_EOL;
     
-    
     return $estoque;
-
 }
 
 function venderProduto($estoque) 
@@ -94,9 +106,7 @@ function verificarEstoque($estoque, $codigo)
     echo "O produto a ser verificado é: $produtoASerVerificado" . PHP_EOL;
 
     foreach($estoque[$codigo] as $chave => $produto) {
-
         echo "$chave: $produto" . PHP_EOL;
-             
     }
 }
 
@@ -104,27 +114,18 @@ function listarEstoque($estoque)
 {
 
     foreach($estoque as $codigoSistema => $produtos) {
-
         echo "Código Sistema: $codigoSistema" . PHP_EOL;
 
         foreach($produtos as $chave => $produto) {
-            
             if($produtos['quantidade'] == 0){
-
             } else {
-
                 echo "$chave: $produto" . PHP_EOL;
-
             }   
-
         }
 
         echo PHP_EOL;
-        
-    };
-
+    }
 }
-
 
 $estoque = [];
 
@@ -132,61 +133,43 @@ $opcaoInformada = menu();
 
 while($opcaoInformada != 5) {
 
-
     if($opcaoInformada == 1) {
-        
         $adicionarItem = 1;
-
         while($adicionarItem == 1) {
-
             $estoque = adicionarProduto($estoque);
 
             $adicionarItem =  readline("Para adicioanr outro produto digite 1, para retornar ao menu digite qualquer tecla: " . PHP_EOL);
-
         }  
 
     } elseif($opcaoInformada == 2) {
 
         if($estoque == []) {
-        echo "Não existem produtos cadastrados para vender" . PHP_EOL;
+            echo "Não existem produtos cadastrados para vender" . PHP_EOL;
         } else {
-        $estoque = venderProduto($estoque);
+            $estoque = venderProduto($estoque);
         }
      
-    } elseif ($opcaoInformada == 3) {
+    } elseif($opcaoInformada == 3) {
         
         if($estoque == []) {
-
             echo "Não existem produtos cadastrados para verificar" . PHP_EOL;
-
         } else {
-
             $codigoItemVerificar = readline("Digite o código do sistema do item para verificá-lo: " . PHP_EOL);
+            
             verificarEstoque($estoque, $codigoItemVerificar);
-
         }  
 
-    } elseif ($opcaoInformada == 4) {
-
+    } elseif($opcaoInformada == 4) {
         if($estoque == []) {
-
             echo "Não existem produtos cadastrados" . PHP_EOL;
-
         } else {
-
             listarEstoque($estoque);
-
         }
-
-    } elseif ($opcaoInformada == 5) {
-    
+    } elseif($opcaoInformada == 5) {
         continue;
-
     } else {
-
         echo "Opção inválida, escolha outra opção:" . PHP_EOL;
-
-    };
+    }
 
     $opcaoInformada = menu();
 
