@@ -12,21 +12,20 @@ body {
 .player {
     display: flex;
     flex-direction: column;
-    border: solid;
-    width: 20rem;
-    height: 12rem;
-    border-radius: 5px;
+    width: 18rem;
+    height: 10rem;
+    border-radius: 4px;
     justify-content: space-between;
     font-size: 10px;
+    background-color: rgb(238, 238, 238);
 }
 
 .player .superior {
 
     display: flex;
     flex-direction: column;
-    border: solid;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     flex: 0.9;
     gap: 3px;
    
@@ -34,67 +33,101 @@ body {
 
 .player .superior .informacoes {
 
-    border: solid;
     display: flex;
-    color: blue;
     flex: 0.8;
     
 }
 
-.player .superior .informacoes .imagem {
+.player .superior .informacoes .localImagem {
 
     border: solid;
     display: flex;
-    color: green;
-    flex: 0.3;
+    color: rgb(68, 68, 68);
+    flex: 0.2;
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    border-radius: 5px;
+    
+
 }
+
+.player .superior .informacoes .localImagem .imagem {
+
+    border-radius: 4px;
+}
+
+
 
 .player .superior .informacoes .titulos {
 
-    border: solid;
     display: flex;
-    color: yellow;
     flex-direction: column;
-    flex: 0.7;
+    flex: 0.8;
     justify-content: center;
-    gap: 7px;
+    gap: 5px;
+    
+}
+
+.player .superior .informacoes .titulos .titulo1 {
+
+   color: rgb(204, 50, 50);
+   font-weight: 600;
+    
+}
+
+.player .superior .informacoes .titulos .titulo2 {
+
+   color: rgb(133, 130, 130);
+   font-weight: 500;
+    
+}
+
+.player .superior .informacoes .titulos .titulo3 {
+
+   color: rgb(66, 66, 66);
+   font-weight: 500;
     
 }
 
 .player .superior .barraTempo {
 
     display: flex;
-    border: solid;
     color: blue;
     margin-left: 10px;
     margin-right: 10px;
     flex: 0.1;
+    background-color: rgb(230, 170, 170);
+    border-radius: 3px;
 
     
 }
 
 .player .superior .barraTempo .barraTempoDecorrido {
 
-background-color: black;
+background-color: rgb(177, 25, 25);
 width: 50%;
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;
+
     
 }
 
 .player .superior .tempo {
 
-    border: solid;
     display: flex;
     justify-content: space-between;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 3px;
     color: blue;
     flex: 0.1;
     align-items: center;
+    font-size: 7px;
+    color: rgb(100, 100, 100);
+    font-weight: 500;
     
 }
 
@@ -103,8 +136,9 @@ width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: solid;
-    color: red;
     flex: 0.2;
+    background-color: rgb(212, 212, 212);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 
 }
