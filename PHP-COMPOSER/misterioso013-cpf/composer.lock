@@ -1,0 +1,73 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "546ffdc9cfb013db15959e61c7e4e9e1",
+    "packages": [
+        {
+            "name": "misterioso013/cpf",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/misterioso013/cpf.git",
+                "reference": "b7a97f2520617b72b5c27a70a44edb065181c76e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/misterioso013/cpf/zipball/b7a97f2520617b72b5c27a70a44edb065181c76e",
+                "reference": "b7a97f2520617b72b5c27a70a44edb065181c76e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Misterioso013\\Tools\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rosiel Victor",
+                    "email": "rosielvictor.dev@gmail.com",
+                    "homepage": "https://github.com/misterioso013",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simples Gerador e Validador de CPF PHP",
+            "homepage": "https://github.com/misterioso013/cpf",
+            "keywords": [
+                "CFP Generator",
+                "CPF Validate",
+                "cpf"
+            ],
+            "support": {
+                "issues": "https://github.com/misterioso013/cpf/issues",
+                "source": "https://github.com/misterioso013/cpf/tree/1.1.1"
+            },
+            "time": "2025-03-14T12:00:27+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
+}
