@@ -7,14 +7,15 @@ class Funcionario {
 
     public function __construct(string $nome, Cargo $cargo, float $salario) {
         $salarioMinimo = 1518;
-
-        if($salario < $salarioMinimo) {
-            echo "Funcionário não cadastrado, valor do salário inválido, valor minimo atual R$$salarioMinimo." . PHP_EOL;
-            return;
-        } 
+        
         $this->nome = $nome;
         $this->cargo = $cargo;
         $this->salario = $salario;
+
+         if($salario < $salarioMinimo) {
+            echo "Valor do salário de $this->nome inválido, valor do salário definido como salário minimo atual R$$salarioMinimo." . PHP_EOL;
+            $this->salario = $salarioMinimo;
+        } 
 
         echo "Novo funcionário, $this->nome cadastrado com sucesso." . PHP_EOL;;
 
@@ -29,7 +30,7 @@ class Funcionario {
     public function alterarSalario(float $novoSalario) {
         $salarioMinimo = 1518;
         if($novoSalario < $salarioMinimo) {
-            echo "Novo valor do salário inválido, valor minimo atual R$$salarioMinimo." . PHP_EOL;
+            echo "Novo valor do salário inválido, valor minimo atual R$$salarioMinimo. Salário não alterado" . PHP_EOL;
             return $this->salario;
         }
         $this->salario = $novoSalario;
